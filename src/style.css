@@ -1,1 +1,14 @@
 @import 'tailwindcss';
+
+@theme {
+    --color-main: #410445;
+    --color-secondary: #410445;
+    --color-trinary: #410445;
+    --color-forth: #410445;
+  }
+
+  body {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+  
+  
