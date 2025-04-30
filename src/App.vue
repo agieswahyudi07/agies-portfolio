@@ -1,5 +1,6 @@
 <script setup>
   import Navbar from './components/Navbar.vue'
+  import WorkExperiences from './components/WorkExperiences.vue'
 
 </script>
 
@@ -12,10 +13,9 @@
         </div>
     </section>
     <section id="about-me" name="about-me" class="min-h-screen w-full border-b border-gray-300 py-10 px-5 md:content-center">
-      <div class=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+      <div class=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:border md:border-gray-300 md:rounded-lg md:py-30">
         <!-- Image -->
-        <img src="/images/me.jpg" alt="Agies Wahyudi Image" class="mx-auto h-48 w-96 md:h-60 md:w-120 object-cover rounded-xl shadow-lg">
-        
+        <img src="/images/me.jpg" alt="Agies Wahyudi Image" class="mx-auto object-center h-48 w-96 md:h-72 md:w-120 object-cover rounded-xl shadow-lg">
         <!-- Text -->
         <div class="space-y-5 text-left max-w-md">
           <h1 class=" text-4xl">About <span class="font-semibold">ME</span></h1>
@@ -25,4 +25,15 @@
         </div>
       </div>
     </section>
+    <section id="experiences" name="experiences" class="min-h-screen w-full border-b border-gray-300 py-10 px-5 md:content-center">
+      <div class=" max-w-screen-xl mx-auto grid grid-cols-1 justify-items-center gap-10 md:border md:border-gray-300 md:rounded-lg md:py-30">
+        <div class="space-y-10 text-center max-w-md">
+          <h1 class=" text-4xl">my <span class="font-semibold">Experiences</span></h1>
+          <div class="w-full">
+              <WorkExperiences/>
+          </div>
+        </div>
+      </div>
+    </section>
+
 </template>
