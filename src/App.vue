@@ -26,9 +26,9 @@
     <Navbar/>
     <section id="hero" name="hero" class="min-h-dvh min-w-full border border-b-gray-300">
         <div class="mx-auto h-dvh content-center text-center space-y-10 max-w-screen-xl">
-          <h1  class="tracking-in-contract text-5xl font-semibold px-5 tracking-tight md:tracking-wide z-50">Fullstack Developer</h1>
+          <h1  class="tracking-in-contract text-5xl font-semibold px-5 tracking-tight md:tracking-wide z-50 align-middle">Fullstack <span class=" text-center text-red-600 text-7xl md:text-9xl align-middle animate-spin-slow inline-block transform origin-center caret">(/)</span> Developer</h1>
           <p class="typewriter-wrap text-base text-justify px-5 md:mx-40 md:text-center">
-            {{ typedText }}<span class="caret text-amber-300 text-xl">|</span>
+            {{ typedText }}<span class="caret text-red-600 text-xl">|</span>
           </p>
         </div>
     </section>
@@ -38,15 +38,15 @@
         <img v-animateonscroll="{ enterClass:'animate-enter slide-in-from-r-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000' }" src="/images/me.jpg" alt="Agies Wahyudi Image" class="mx-auto object-center h-48 w-96 md:h-72 md:w-120 object-cover rounded-xl shadow-lg">
         <!-- Text -->
         <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class="space-y-5 text-left max-w-md justify-self-center md:justify-self-start">
-          <h1  class=" text-4xl">About <span class="font-semibold">ME</span></h1>
-          <p>I'm Agies Wahyudi, a Fullstack Web Developer with 2 years of experience in Laravel 10, Vue.js, REST API development, and third-party integrations.</p>
+          <h1  class=" text-4xl">About<span class="caret text-red-600">/</span><span class="font-semibold">ME</span></h1>
+          <p>I'm Agies Wahyudi, a Fullstack Web Developer with 2 years of experience in Laravel Framework, Vue.js, REST API development, and third-party integrations.</p>
           <p>I've built lead generation platforms, asset management systems, and custom web solutions. Skilled in backend/frontend development, database optimization, and automation,</p>
           <p>I'm passionate about solving challenges and continuously growing as a developer.</p>
         </div>
       </div>
     </section>
     <section id="experiences" name="experiences" class="min-h-screen w-full border-b border-gray-300 py-10 px-5 md:content-center">
-      <h1 class=" text-4xl text-center my-10">my <span class="font-semibold">Experiences</span></h1>
+      <h1 class=" text-4xl text-center my-10">my<span class="caret text-red-600">/</span><span class="font-semibold"></span><span class="font-semibold">Experiences</span></h1>
       <div class=" max-w-screen-xl mx-auto grid grid-cols-1 justify-items-center md:py-5 mt-5">
         <div class="space-y-10 text-center max-w-md">
           <div class="w-full">
@@ -56,14 +56,14 @@
       </div>
     </section>
     <section id="projects" name="projects" class="min-h-screen w-full border-b border-gray-300 py-10 px-5 md:content-center">
-      <h1 class=" text-4xl text-center my-10">my <span class="font-semibold">Projects</span></h1>
+      <h1 class=" text-4xl text-center my-10">my<span class="caret text-red-600">/</span><span class="font-semibold"></span><span class="font-semibold">Projects</span></h1>
       <div class=" max-w-screen-xl mx-auto ">
         <Projects/>
       </div>
     </section>
     <section id="footer" name="footer" class="min-h-fit w-full border-b border-gray-300 py-5 px-5 md:content-center flex flex-col items-center gap-2">
         <div class="text-sm text-center">
-          ©2025 Agies Wahyudi. All rights reserved.
+          ©2025 Agies Wahyudi. All rights reserved.<span class="caret text-red-600 text-xl">|</span>
         </div>
         <div class="flex flex-row gap-5 text-3xl">
           <a target="_blank" href="https://github.com/agieswahyudi07/">
@@ -85,6 +85,20 @@
 
 <style scoped>
 /*  ANIMATIONS  */
+
+.spin-center {
+    animation: spin-center 10s linear infinite;
+    display: inline-block;
+    transform-origin: center center;
+  }
+@keyframes spin-center {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 .typewriter-wrap {
   overflow-wrap: break-word;
