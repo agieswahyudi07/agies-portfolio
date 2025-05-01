@@ -5,6 +5,7 @@ const menu = ref([
   { name: 'Home', link: '#hero' },
   { name: 'About Me', link: '#about-me' },
   { name: 'Experiences', link: '#experiences' },
+  { name: 'Projects', link: '#projects' },
   // { name: 'Contact', link: '#' },
 ]);
 

@@ -16,17 +16,17 @@ const experiences = ref([
             "Collaborate with cross-functional teams to analyze business needs, troubleshoot issues, and deliver high-quality solutions.",
         ],
     },
-    // {
-    //     job: 'General Affairs Staff',
-    //     company: 'Yayasan Al-Hasra',
-    //     start_date: 'July 2023',
-    //     end_date: 'February 2024',
-    //     descriptions:[
-    //         "Management of Foundation Assets Encompassing Three Schools.",
-    //         "Provision of Operational Requirements for the Foundation and Schools.",
-    //         "Development of a Web System to Facilitate Asset Management and Requirements.",
-    //     ],
-    // },
+    {
+        job: 'General Affairs Staff (developing web)',
+        company: 'Yayasan Al-Hasra',
+        start_date: 'July 2023',
+        end_date: 'February 2024',
+        descriptions:[
+            "Management of Foundation Assets Encompassing Three Schools.",
+            "Provision of Operational Requirements for the Foundation and Schools.",
+            "Development of a Web System to Facilitate Asset Management and Requirements.",
+        ],
+    },
     {
         job: 'Full Stack Developer',
         company: 'Software House',
@@ -61,7 +61,7 @@ const selectStep = (value) => {
           <Stepper :value="selectedStep"
             :pt="{
                     root:{
-                        class: ' border border-gray-300 flex flex-col justify-self-center px-5 py-5 gap-5 sm:min-w-150 md:min-w-200 lg:min-w-250'
+                        class: ' border rounded-lg border-gray-300 flex flex-col justify-self-center px-5 py-5 gap-5 sm:min-w-150 md:min-w-200 lg:min-w-250'
                     },
                     separator:{
                         class: 'bg-red-500 p-10'
