@@ -9,6 +9,7 @@ import Step from 'primevue/step';
 import StepPanel from 'primevue/steppanel';
 import StepList from 'primevue/steplist';
 import './style.css'
+import AnimateOnScroll from 'primevue/animateonscroll';
 
 
 const app = createApp(App)
@@ -26,10 +27,12 @@ app.use(PrimeVue,{
     //     }
     // }
 })
+
 app.component('Step', Step);
 app.component('StepItem', StepItem);
 app.component('Stepper', Stepper);
 app.component('StepList', StepList);
 app.component('StepPanel', StepPanel);
 app.component('Button', Button)
+app.directive('animateonscroll', AnimateOnScroll);
 app.mount('#app')

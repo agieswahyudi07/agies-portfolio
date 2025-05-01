@@ -2,6 +2,23 @@
   import Navbar from './components/Navbar.vue'
   import WorkExperiences from './components/WorkExperiences.vue'
   import Projects from './components/Projects.vue'
+  import { onMounted, ref } from 'vue'
+  
+  const fullText = ref("I build fast, scalable, and user-friendly web applications. With a strong foundation in both frontend and backend development, I create digital solutions that are both functional and visually engaging.")
+  const typedText = ref('')
+  const index = ref(0)
+
+  function typeWriter() {
+    if (index.value < fullText.value.length) {
+      typedText.value += fullText.value.charAt(index.value);
+      index.value++;
+      setTimeout(typeWriter, 40); // kecepatan ketik per huruf
+    }
+  }
+
+  onMounted(() => {
+    typeWriter();
+  })
 
 </script>
 
@@ -9,17 +26,19 @@
     <Navbar/>
     <section id="hero" name="hero" class="min-h-dvh min-w-full border border-b-gray-300">
         <div class="mx-auto h-dvh content-center text-center space-y-10 max-w-screen-xl">
-          <h1 class="slideInLeft text-5xl font-semibold px-5 tracking-tight md:tracking-wide z-50">Fullstack Developer</h1>
-          <p class="slideInRight text-base text-justify px-5 md:mx-40 md:text-center">I   build fast, scalable, and user-friendly web applications. With a strong foundation in both frontend and backend development, I create digital solutions that are both functional and visually engaging.</p>
+          <h1  class="tracking-in-contract text-5xl font-semibold px-5 tracking-tight md:tracking-wide z-50">Fullstack Developer</h1>
+          <p class="typewriter-wrap text-base text-justify px-5 md:mx-40 md:text-center">
+            {{ typedText }}<span class="caret text-amber-300 text-xl">|</span>
+          </p>
         </div>
     </section>
     <section id="about-me" name="about-me" class="min-h-screen w-full border-b border-gray-300 py-10 px-5 md:content-center">
       <div class=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:border md:border-gray-300 md:rounded-lg md:py-20">
         <!-- Image -->
-        <img src="/images/me.jpg" alt="Agies Wahyudi Image" class="mx-auto object-center h-48 w-96 md:h-72 md:w-120 object-cover rounded-xl shadow-lg">
+        <img v-animateonscroll="{ enterClass:'animate-enter slide-in-from-r-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000' }" src="/images/me.jpg" alt="Agies Wahyudi Image" class="mx-auto object-center h-48 w-96 md:h-72 md:w-120 object-cover rounded-xl shadow-lg">
         <!-- Text -->
-        <div class="space-y-5 text-left max-w-md justify-self-center md:justify-self-start">
-          <h1 class=" text-4xl">About <span class="font-semibold">ME</span></h1>
+        <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class="space-y-5 text-left max-w-md justify-self-center md:justify-self-start">
+          <h1  class=" text-4xl">About <span class="font-semibold">ME</span></h1>
           <p>I'm Agies Wahyudi, a Fullstack Web Developer with 2 years of experience in Laravel 10, Vue.js, REST API development, and third-party integrations.</p>
           <p>I've built lead generation platforms, asset management systems, and custom web solutions. Skilled in backend/frontend development, database optimization, and automation,</p>
           <p>I'm passionate about solving challenges and continuously growing as a developer.</p>
@@ -67,109 +86,53 @@
 <style scoped>
 /*  ANIMATIONS  */
 
-.ping {
-	-webkit-animation: ping 0.8s ease-in-out 1s infinite both;
-	        animation: ping 0.8s ease-in-out 1s infinite both;
-}
-@-webkit-keyframes ping {
-  0% {
-    -webkit-transform: scale(0.2);
-            transform: scale(0.2);
-    opacity: 0.8;
-  }
-  80% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scale(2.2);
-            transform: scale(2.2);
-    opacity: 0;
-  }
-}
-@keyframes ping {
-  0% {
-    -webkit-transform: scale(0.2);
-            transform: scale(0.2);
-    opacity: 0.8;
-  }
-  80% {
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: scale(2.2);
-            transform: scale(2.2);
-    opacity: 0;
-  }
+.typewriter-wrap {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal; /* multiline allowed */
+  line-height: 1.6;
+  position: relative;
 }
 
-
-.slideInLeft {
-  -webkit-animation-name: slideInLeft;
-  animation-name: slideInLeft;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  }
-  @-webkit-keyframes slideInLeft {
-  0% {
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  visibility: visible;
-  }
-  100% {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  }
-  }
-  @keyframes slideInLeft {
-  0% {
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  visibility: visible;
-  }
-  100% {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  }
-
+.caret {
+  display: inline-block;
+  animation: blink 0.75s step-end infinite;
 }
 
-.slideInRight {
-  -webkit-animation-name: slideInRight;
-  animation-name: slideInRight;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  }
-  @-webkit-keyframes slideInRight {
-  0% {
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-  visibility: visible;
-  }
-  100% {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  }
-  }
-  @keyframes slideInRight {
-  0% {
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
-  visibility: visible;
-  }
-  100% {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  }
-  } 
+@keyframes blink {
+  50% { opacity: 0; }
+}
 
+.tracking-in-contract {
+	-webkit-animation: tracking-in-contract 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-contract 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+@-webkit-keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
 
 /*  ANIMATIONS  */
 

@@ -17,7 +17,7 @@ const experiences = ref([
         ],
     },
     {
-        job: 'General Affairs Staff (developing web)',
+        job: 'Full Stack Developer',
         company: 'Yayasan Al-Hasra',
         start_date: 'July 2023',
         end_date: 'February 2024',
@@ -57,7 +57,7 @@ const selectStep = (value) => {
 
 </script>
 <template>
-      <div class="">
+      <div  >
           <Stepper :value="selectedStep"
             :pt="{
                     root:{
