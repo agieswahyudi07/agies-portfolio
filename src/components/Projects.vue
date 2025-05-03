@@ -50,24 +50,27 @@ const projects = ref([
 
 </script>
 <template>
-      <div v-for="(item, index) in projects" class="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-5 md:py-10">
+      <div v-for="(item, index) in projects"
+      v-animateonscroll="{
+        enterClass: index % 2 === 0 
+          ? 'animate-enter slide-in-from-l-8 animate-duration-1000' 
+          : 'animate-enter slide-in-from-r-8 animate-duration-1000',
+        leaveClass: index % 2 === 0 
+          ? 'animate-leave slide-out-to-r-8 animate-duration-1000' 
+          : 'animate-leave slide-out-to-l-8 animate-duration-1000',
+      }"
+      class="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-5 md:py-10">
           <!-- Text -->
           <div :class="[
             'space-y-2 text-left max-w-md justify-self-center order-2',
              (index % 2 == 0) ? ' md:justify-self-end  md:order-1 ' : ' md:justify-self-start md:order-2'
              ]"
-              v-animateonscroll="{
-                enterClass: index % 2 === 0 
-                  ? 'animate-enter slide-in-from-l-8 animate-duration-1000' 
-                  : 'animate-enter slide-in-from-r-8 animate-duration-1000',
-                leaveClass: 'animate-leave fade-out-0'
-              }"
-
+              
              >
             <h2 class=" text-3xl font-semibold">{{ item.title }}</h2>
             <h3 class=" text-xl font-semibold">{{ item.company }}</h3>
             <div class="space-y-1 text-left text-sm flex flex-col justify-items-center max-w-md">
-                <div v-for="text in item.descriptions" class="flex flex-row ">
+                <div v-for="text in item.descriptions" class="flex flex-row text-gray-600">
                     <i class="pi pi-circle mt-1 mr-3"></i><p>{{ text }}</p>
                 </div>
             </div>

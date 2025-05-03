@@ -1,6 +1,7 @@
-<script setup>  
-import { ref } from 'vue';
-
+<script setup>
+import { onMounted, ref } from 'vue'
+import Accordion from 'primevue/accordion'
+import AccordionTab from 'primevue/accordiontab'
 //DATA
 const experiences = ref([
     {
@@ -8,7 +9,7 @@ const experiences = ref([
         company: 'Zova Teknologi Indonesia',
         start_date: 'February 2024',
         end_date: 'Present',
-        descriptions:[
+        descriptions: [
             "Develop and maintain lead generation marketing platform, ensuring performance and scalability.",
             "Enhance and optimize the core engine for generating, processing and distributing leads efficiently.",
             "Implement and integrate third-party services and APIs to improve system capabitlities and automation.",
@@ -21,7 +22,7 @@ const experiences = ref([
         company: 'Yayasan Al-Hasra',
         start_date: 'July 2023',
         end_date: 'February 2024',
-        descriptions:[
+        descriptions: [
             "Management of Foundation Assets Encompassing Three Schools.",
             "Provision of Operational Requirements for the Foundation and Schools.",
             "Development of a Web System to Facilitate Asset Management and Requirements.",
@@ -32,7 +33,7 @@ const experiences = ref([
         company: 'Software House',
         start_date: 'February 2023',
         end_date: 'May 2023',
-        descriptions:[
+        descriptions: [
             "Developing, designing, and maintaining websites.",
             "Writing and maintaining website code.",
             "Creating and updating website features.",
@@ -40,74 +41,69 @@ const experiences = ref([
             "Troubleshooting technical issues on websites.",
         ],
     },
-]);
-let selectedStep = ref(1)
+
+])
+const indexExperiences = ref([]) 
 //DATA
 
-//METHODS
-const selectStep = (value) => {    
-    // if (value == selectedStep.value) {
-    //     return selectedStep.value = ''
-    // }
-    selectedStep.value = value
+// METHODS 
+function get_index(array) {
+    return array.map((_, index) => index);
 }
-//METHODS
+// METHODS 
 
-
-
+// HOOKS 
+onMounted(() => {
+    indexExperiences.value = get_index(experiences.value)
+})
+// HOOKS 
 </script>
+
 <template>
-      <div  >
-          <Stepper :value="selectedStep"
-            :pt="{
-                    root:{
-                        class: ' border rounded-lg border-gray-300 flex flex-col justify-self-center px-5 py-5 gap-5 sm:min-w-150 md:min-w-200 lg:min-w-250'
-                    },
-                    separator:{
-                        class: 'bg-red-500 p-10'
-                    }
-                }"
-            >
-            <StepItem v-for="(item,index) in experiences" :key="index" :value="index + 1" @click="selectStep(index + 1)"
-                :pt="{
-                    root:{
-                        class: ' flex flex-col gap-3'
-                    }
-                }"
-            >
-                <Step
-                :pt="{
-                    root:{
-                        class: 'flex'
-                    },
-                    header:{
-                        class: 'flex items-center gap-3 hover:underline hover:cursor-pointer'
-                    },
-                    number: {
-                        class: 'w-8 h-8 rounded-full border border-black flex items-center justify-center text-sm'
-                    }
-                    }"  
-                  >{{ item.job }}</Step>
-                  <StepPanel>
-                      <div class=" flex flex-col h-fit ">
-                        <div class=" swing-in-top-fwd w-full border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-900 p-6 flex flex-col gap-3 shadow-sm">
-                            <h1 class="text-xl font-semibold text-center text-gray-800 dark:text-gray-200">
-                                {{ item.company }}
-                            </h1>
-                            <p class="text-sm text-center text-gray-600 dark:text-gray-400">
-                                {{ item.start_date }} - {{ item.end_date }}
-                            </p>
-                            <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1 text-left">
-                                <li v-for="(text, i) in item.descriptions" :key="i">
-                                    {{ text }}
-                                </li>
-                            </ul>
-                        </div>
-                      </div>
-                  </StepPanel>
-              </StepItem>
-          </Stepper>
+  <Accordion 
+    :activeIndex="indexExperiences" 
+    :multiple="true"
+    pt:root:v-animateonscroll="{
+                    enterClass: 'animate-enter slide-in-from-r-8 animate-duration-1000',
+                    leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000'
+                }" 
+     :pt="{
+            root: { 
+                class: 'swing-in-top-fwd flex flex-col gap-5 border rounded-lg border-gray-300 justify-self-center md:px-5 md:py-5 sm:min-w-150 md:min-w-200 lg:min-w-250 w-full',
+                // v-animateonscroll: {
+                //     enterClass: 'animate-enter slide-in-from-r-8 animate-duration-1000',
+                //     leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000'
+                // }
+            },
+            tab: { class: 'mb-3 ' }
+        }"
+    >
+    <AccordionTab
+      v-for="(item, index) in experiences"
+      :key="index"
+      :header="item.job"
+      :pt="{
+        header: {
+          class: ' flex justify-between items-center cursor-pointer px-4 py-2 hover:underline hover:bg-gray-200 text-sm font-medium border border-gray-300 rounded-md w-full'
+        },
+        content: {
+          class: ' p-4 bg-white border border-gray-300 rounded-lg shadow-sm mt-3'
+        }
+      }"
+    >
+      <div class="flex flex-col gap-3 p-5 rounded-sm bg-gray-800">
+        <h1 class="text-xl font-semibold text-center text-gray-800 dark:text-gray-200">
+          {{ item.company }}
+        </h1>
+        <p class="text-sm text-center text-gray-600 dark:text-gray-400">
+          {{ item.start_date }} - {{ item.end_date }}
+        </p>
+        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1 text-left">
+          <li v-for="(text, i) in item.descriptions" :key="i">{{ text }}</li>
+        </ul>
       </div>
+    </AccordionTab>
+  </Accordion>
 </template>
 
 <style scoped>
@@ -115,19 +111,7 @@ const selectStep = (value) => {
 	-webkit-animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 	        animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
 }
-/* ----------------------------------------------
- * Generated by Animista on 2025-4-30 1:47:45
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation swing-in-top-fwd
- * ----------------------------------------
- */
- @-webkit-keyframes swing-in-top-fwd {
+@-webkit-keyframes swing-in-top-fwd {
   0% {
     -webkit-transform: rotateX(-100deg);
             transform: rotateX(-100deg);

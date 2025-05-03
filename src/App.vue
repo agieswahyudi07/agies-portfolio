@@ -4,7 +4,7 @@
   import Projects from './components/Projects.vue'
   import { onMounted, ref } from 'vue'
   
-  const fullText = ref("I build fast, scalable, and user-friendly web applications. With a strong foundation in both frontend and backend development, I create digital solutions that are both functional and visually engaging.")
+  const fullText = ref("I'm a Fullstack Developer based in Jakarta. I build fast, scalable, and user-friendly web applications. With a strong foundation in both frontend and backend development, I create digital solutions that are both functional and visually engaging.")
   const typedText = ref('')
   const index = ref(0)
 
@@ -25,11 +25,26 @@
 <template>
     <Navbar/>
     <section id="hero" name="hero" class="min-h-dvh min-w-full border border-b-gray-300">
-        <div class="mx-auto h-dvh content-center text-center space-y-10 max-w-screen-xl">
-          <h1  class="tracking-in-contract text-5xl font-semibold px-5 tracking-tight md:tracking-wide z-50 align-middle">Fullstack <span class=" text-center text-red-600 text-7xl md:text-9xl align-middle animate-spin-slow inline-block transform origin-center caret">(/)</span> Developer</h1>
-          <p class="typewriter-wrap text-base text-justify px-5 md:mx-40 md:text-center">
+        <div class="mx-auto h-dvh content-center text-center max-w-screen-xl pt-15 md:pt-0">
+          <h1  class="tracking-in-contract text-1xl px-5 tracking-tight md:tracking-wide z-50">Hello, my name is</h1>
+          <h1  class="tracking-in-contract text-5xl font-semibold px-5 tracking-tight md:tracking-wide z-50">Ramadhan Agies Ananda Wahyudi</h1>
+          <p class="typewriter-wrap text-base text-justify px-5 md:mx-40 md:text-center text-gray-600 mt-5">
             {{ typedText }}<span class="caret text-red-600 text-xl">|</span>
           </p>
+          <div class="flex flex-row gap-5 text-3xl justify-self-center mt-5">
+          <a target="_blank" href="https://github.com/agieswahyudi07/">
+            <i class="pi pi-github"></i>
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/agieswahyudi/">
+            <i class="pi pi-linkedin"></i>
+          </a>
+          <a target="_blank" href="https://www.instagram.com/agieswahyudi_/">
+            <i class="pi pi-instagram"></i>
+          </a>
+          <a target="_blank" href="mailto:agieswahyudi@gmail.com">
+            <i class="pi pi-envelope"></i>
+          </a>
+        </div>
         </div>
     </section>
     <section id="about-me" name="about-me" class="min-h-screen w-full border-b border-gray-300 py-10 px-5 md:content-center">
@@ -37,8 +52,8 @@
         <!-- Image -->
         <img v-animateonscroll="{ enterClass:'animate-enter slide-in-from-r-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000' }" src="/images/me.jpg" alt="Agies Wahyudi Image" class="mx-auto object-center h-48 w-96 md:h-72 md:w-120 object-cover rounded-xl shadow-lg">
         <!-- Text -->
-        <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class="space-y-5 text-left max-w-md justify-self-center md:justify-self-start">
-          <h1  class=" text-4xl">About<span class="caret text-red-600">/</span><span class="font-semibold">ME</span></h1>
+        <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class="space-y-5 text-left max-w-md justify-self-center md:justify-self-start text-gray-600">
+          <h1  class=" text-4xl text-black">About<span class="caret text-red-600">/</span><span class="font-semibold">ME</span></h1>
           <p>I'm Agies Wahyudi, a Fullstack Web Developer with 2 years of experience in Laravel Framework, Vue.js, REST API development, and third-party integrations.</p>
           <p>I've built lead generation platforms, asset management systems, and custom web solutions. Skilled in backend/frontend development, database optimization, and automation,</p>
           <p>I'm passionate about solving challenges and continuously growing as a developer.</p>
