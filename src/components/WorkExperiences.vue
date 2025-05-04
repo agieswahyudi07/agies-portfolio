@@ -84,14 +84,14 @@ onMounted(() => {
       :header="item.job"
       :pt="{
         header: {
-          class: ' flex justify-between items-center cursor-pointer px-4 py-2 hover:underline hover:bg-gray-200 text-sm font-medium border border-gray-300 rounded-md w-full'
+          class: ' flex text-xl justify-between items-center cursor-pointer px-4 py-2 hover:underline hover:text-red-500 hover:bg-gray-200 text-sm font-medium border border-gray-300 rounded-md w-full'
         },
         content: {
           class: ' p-4 bg-white border border-gray-300 rounded-lg shadow-sm mt-3'
         }
       }"
     >
-      <div class="flex flex-col gap-3 p-5 rounded-sm bg-gray-800">
+      <div class="flex flex-col gap-3 p-5 rounded-sm bg-gray-800 inset-shadow-sm inset-shadow-red-500">
         <h1 class="text-xl font-semibold text-center text-gray-800 dark:text-gray-200">
           {{ item.company }}
         </h1>

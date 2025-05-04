@@ -28,7 +28,7 @@ const isOpen = ref(false);
       
       <ul class="hidden md:flex space-x-5 font-semibold">
         <li v-for="item in menu" :key="item.name">
-          <a :href="item.link" class="hover:underline">{{ item.name }}</a>
+          <a :href="item.link" class="hover:underline hover:text-red-500">{{ item.name }}</a>
         </li>
       </ul>
     </div>
@@ -36,7 +36,7 @@ const isOpen = ref(false);
     <div v-if="isOpen" class=" transition-all duration-300 md:hidden mt-2 bg-gray-100 p-4 font-semibold rounded-md">
       <ul class="space-y-2">
         <li v-for="item in menu" :key="item.name">
-          <a :href="item.link" class="block hover:underline">{{ item.name }}</a>
+          <a :href="item.link" class="block hover:underline hover:text-red-500">{{ item.name }}</a>
         </li>
       </ul>
     </div>
