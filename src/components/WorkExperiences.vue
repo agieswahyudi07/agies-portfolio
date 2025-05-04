@@ -18,7 +18,7 @@ const experiences = ref([
         ],
     },
     {
-        job: 'Full Stack Developer',
+        job: 'Fullstack Developer',
         company: 'Yayasan Al-Hasra',
         start_date: 'July 2023',
         end_date: 'February 2024',
@@ -29,7 +29,7 @@ const experiences = ref([
         ],
     },
     {
-        job: 'Full Stack Developer',
+        job: 'Fullstack Developer',
         company: 'Software House',
         start_date: 'February 2023',
         end_date: 'May 2023',
