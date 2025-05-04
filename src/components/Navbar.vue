@@ -15,7 +15,7 @@ const isOpen = ref(false);
 <template>
   <nav class="fixed top-0 right-0 left-0 z-50 bg-white text-black p-4 border border-b-gray-300 px-5 lg:px-50">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold text-black">Agies Wahyudi. <span class=" text-red-600 spin-center align-middle text-center text-sm">(/)</span></h1>
+      <h1 class="text-xl font-bold text-black">Agies Wahyudi. <span class=" text-red-600 spin-center align-middle text-center justify-self-center text-sm"><i class="pi pi-cog"></i></span></h1>
       
       <Button @click="isOpen = !isOpen" class="md:hidden text-black focus:outline-none">
         <svg v-if="!isOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@ const isOpen = ref(false);
 
 <style scoped>
 .spin-center {
-    animation: spin-center 10s linear infinite;
+    animation: spin-center 3s linear infinite;
     display: inline-block;
     transform-origin: center center;
   }

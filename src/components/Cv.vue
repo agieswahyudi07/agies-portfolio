@@ -6,13 +6,13 @@ const link = 'https://drive.google.com/u/0/uc?id=1yDcDr3AEyb2D7bCB654YAx_9CDut4N
   <div
     class="animate-float fixed bottom-26 md:bottom-6 right-4 z-50 bg-white/80 backdrop-blur-md border border-red-600 shadow-xl shadow-red-500 rounded-full px-4 md:px-5 py-2 md:py-3 flex items-center gap-2 transition-transform hover:scale-105 hover:shadow-2xl cursor-pointer group"
   >
-    <i class="pi pi-cloud-download text-red-600 text-lg md:text-xl transition-transform group-hover:rotate-[-20deg] group-hover:scale-110"></i>
+    <i class="pi pi-cloud-download text-lg md:text-xl transition-transform group-hover:rotate-[-20deg] group-hover:scale-110"></i>
 
     <a
       :href="link"
       target="_blank"
       download
-      class="text-red-600 font-semibold text-sm md:text-base hover:underline"
+      class=" font-semibold text-sm md:text-base hover:underline"
     >
       <span class="md:inline hidden">My Resume</span>
       <span class="md:hidden">CV</span>
