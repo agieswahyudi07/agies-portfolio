@@ -92,13 +92,13 @@ onMounted(() => {
       }"
     >
       <div class="flex flex-col gap-3 p-5 rounded-sm bg-gray-800 inset-shadow-sm inset-shadow-red-500">
-        <h1 class="text-xl font-semibold text-center text-gray-800 dark:text-gray-200">
+        <h1 class="text-xl font-semibold text-center text-gray-200">
           {{ item.company }}
         </h1>
-        <p class="text-sm text-center text-gray-600 dark:text-gray-400">
+        <p class="text-sm text-center text-gray-400">
           {{ item.start_date }} - {{ item.end_date }}
         </p>
-        <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300 space-y-1 text-left">
+        <ul class="list-disc list-inside text-sm text-gray-300 space-y-1 text-left">
           <li v-for="(text, i) in item.descriptions" :key="i">{{ text }}</li>
         </ul>
       </div>
