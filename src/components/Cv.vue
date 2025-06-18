@@ -1,5 +1,5 @@
 <script setup>
-const link = 'https://drive.google.com/u/0/uc?id=1yDcDr3AEyb2D7bCB654YAx_9CDut4NY5&export=download';
+const link = 'https://drive.google.com/file/d/1yDcDr3AEyb2D7bCB654YAx_9CDut4NY5/view';
 </script>
 
 <template>
@@ -11,7 +11,6 @@ const link = 'https://drive.google.com/u/0/uc?id=1yDcDr3AEyb2D7bCB654YAx_9CDut4N
     <a
       :href="link"
       target="_blank"
-      download
       class=" font-semibold text-sm md:text-base hover:underline"
     >
       <span class="md:inline hidden">My Resume</span>
