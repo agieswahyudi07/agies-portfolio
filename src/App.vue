@@ -100,7 +100,7 @@
     <section id="footer" name="footer" class="min-h-fit w-full border-b border-gray-300 py-5 px-5 md:content-center flex flex-col items-center gap-2">
       <div class="py-10 flex flex-col items-center md:content-center gap-5">
         <div class="text-center space-y-5">
-            <h2  class="tracking-in-contract text-3xl md:text-5xl font-semibold px-5 tracking-tight md:tracking-wide">Have a project or idea?</h2>
+            <p  class="tracking-in-contract text-3xl md:text-5xl font-semibold px-5 tracking-tight md:tracking-wide">Have a project or idea?</p>
             <p  class="tracking-in-contract text-sm md:text-lg px-5 tracking-">Let’s talk! You can email me or connect through the platforms below</p>
         </div>
         <div class="flex flex-row gap-5 text-3xl">
