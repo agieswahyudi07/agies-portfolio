@@ -17,6 +17,11 @@
     }
   }
 
+  const scrollToAbout = () => {
+    const section = document.getElementById("about-me");
+    section?.scrollIntoView({ behavior: "smooth" });
+  }
+
   onMounted(() => {
     typeWriter();
   })
@@ -27,7 +32,7 @@
     <Navbar/>
     <Cv/>  
     <section id="hero" name="hero" class="relative honey-comb min-h-full min-w-full border border-b-gray-300">
-        <div class="mx-auto h-dvh content-center text-center max-w-screen-xl pt-20 pb-15 md:pt-0 md:pb-0">
+        <div class="relative mx-auto h-dvh content-center text-center max-w-screen-xl pt-20 pb-15 md:pt-0 md:pb-0">
           <h1  class="tracking-in-contract text-lg md:text-1xl px-5 tracking-tight md:tracking-wide">Hello, my name is</h1>
           <h1  class="tracking-in-contract text-4xl md:text-6xl font-semibold px-5 tracking-tight md:tracking-wide">Ramadhan Agies Ananda Wahyudi</h1>
           <p class="typewriter-wrap text-sm md:text-base text-justify px-5 md:mx-40 md:text-center text-gray-600 mt-5">
@@ -46,6 +51,15 @@
             <a target="_blank" href="mailto:agieswahyudi@gmail.com">
               <i class="pi pi-envelope hover:text-red-500"></i>
             </a>
+           <Button
+            class="button-float flex items-center gap-2 px-4 py-2 cursor-pointer absolute bottom-30 left-1/2 transform -translate-x-1/2 ring-1 ring-gray-300 bg-white hover:bg-red-100 hover:ring-red-500 text-black rounded-full text-base shadow-md transition duration-300"
+            rounded
+            aria-label="Scroll to About Me"
+            @click="scrollToAbout"
+          >
+            <span class="font-medium">Get to know me!</span>
+            <i class="pi pi-arrow-down text-lg"></i>
+          </Button>
           </div>
         </div>
     </section>
@@ -84,23 +98,29 @@
       </div>
     </section>
     <section id="footer" name="footer" class="min-h-fit w-full border-b border-gray-300 py-5 px-5 md:content-center flex flex-col items-center gap-2">
-        <div class="text-sm text-center">
-          ©2025 Agies Wahyudi. All rights reserved.<span class="caret text-red-600 text-xl">|</span>
+      <div class="py-10 flex flex-col items-center md:content-center gap-5">
+        <div class="text-center space-y-5">
+            <h2  class="tracking-in-contract text-3xl md:text-5xl font-semibold px-5 tracking-tight md:tracking-wide">Have a project or idea?</h2>
+            <p  class="tracking-in-contract text-sm md:text-lg px-5 tracking-">Let’s talk! You can email me or connect through the platforms below</p>
         </div>
         <div class="flex flex-row gap-5 text-3xl">
           <a target="_blank" href="https://github.com/agieswahyudi07/">
             <i class="pi pi-github"></i>
           </a>
           <a target="_blank" href="https://www.linkedin.com/in/agieswahyudi/">
-            <i class="pi pi-linkedin"></i>
-          </a>
-          <a target="_blank" href="https://www.instagram.com/agieswahyudi_/">
-            <i class="pi pi-instagram"></i>
-          </a>
-          <a target="_blank" href="mailto:agieswahyudi@gmail.com">
-            <i class="pi pi-envelope"></i>
-          </a>
+              <i class="pi pi-linkedin"></i>
+            </a>
+            <a target="_blank" href="https://www.instagram.com/agieswahyudi_/">
+              <i class="pi pi-instagram"></i>
+            </a>
+            <a target="_blank" href="mailto:agieswahyudi@gmail.com">
+              <i class="pi pi-envelope"></i>
+            </a>
         </div>
+        <div class="text-sm text-center">
+          ©2025 Agies Wahyudi. All rights reserved.<span class="caret text-red-600 text-xl">|</span>
+        </div>
+      </div>
     </section>
 
 </template>
@@ -133,6 +153,19 @@
 .caret {
   display: inline-block;
   animation: blink 0.75s step-end infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.button-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 @keyframes blink {
