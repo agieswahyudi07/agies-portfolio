@@ -69,15 +69,18 @@
           <img src="/images/bg-about-me.png" alt="background" class="w-full h-full object-cover object-right-bottom sm:object-bottom " />
         </div>
 
-      <div class=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:border md:border-red-600 shadow-sm shadow-red-500 rounded-xl md:py-20  bg-white justify-self-center">
+      <div class=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:border md:border-red-600 shadow-sm shadow-red-500 rounded-xl md:py-20 md:px-10  bg-white justify-self-center">
         <!-- Image -->
         <img v-animateonscroll="{ enterClass:'animate-enter slide-in-from-r-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000' }" src="/images/me.jpg" alt="Agies Wahyudi Image" class="mx-auto object-center h-48 w-96 md:h-72 md:w-120 object-cover rounded-t-xl md:rounded-xl  shadow-lg">
         <!-- Text -->
-        <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class="space-y-5 text-left max-w-md justify-self-center md:justify-self-start text-gray-600 px-5 pb-5 md:pb-0 md:px-0">
+        <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class=" flex flex-col content-start self-start space-y-5 text-left max-w-md justify-self-center md:justify-self-start text-gray-600 px-5 pb-5 md:pb-0 md:px-0">
           <h1  class=" text-4xl text-black">About<span class="caret text-red-600">/</span><span class="font-semibold">ME</span></h1>
-          <p>I'm Agies Wahyudi, a Fullstack Web Developer with 2 years of experience in Laravel Framework, Vue.js, REST API development, and third-party integrations.</p>
-          <p>I've built lead generation platforms, asset management systems, and custom web solutions. Skilled in backend/frontend development, database optimization, and automation,</p>
-          <p>I'm passionate about solving challenges and continuously growing as a developer.</p>
+          <p>
+            Fullstack Web Developer with 2+ years of experience building scalable, multi-tenant web applications using
+            Laravel, Vue.js, and REST APIs. Delivered a lead generation platform with integrations to Stripe, Zapier, and
+            GoHighLevel, processing 10,000+ leads/month. Passionate about optimizing solutions and driving client
+            success.
+          </p>
         </div>
       </div>
     </section>

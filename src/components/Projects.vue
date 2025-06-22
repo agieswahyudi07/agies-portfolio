@@ -10,11 +10,10 @@ const projects = ref([
         image_src: '/images/general-setting-agency.png',
         image_alt: 'Exact Match Marketing Images',
         descriptions:[
-            "Develop and maintain lead generation marketing platform using Vue JS x Laravel, ensuring performance and scalability.",
-            "Enhance and optimize the core engine for generating, processing and distributing leads efficiently.",
-            "Implement and integrate third-party services and APIs to improve system capabitlities and automation.",
-            "Develop custom modules and features tailored to clients business requrements, ensuring seamless functionality and user experience.",
-            "Collaborate with cross-functional teams to analyze business needs, troubleshoot issues, and deliver high-quality solutions.",
+            "Developed and maintained a multi-tenant lead generation platform, processing 10,000+ leads/month, with a 20% increase in scalability through core engine optimization.",
+            "Integrated 6+ third-party platforms (Stripe, Google Sheets, Zapier, GoHighLevel, MailboxPower, BigDBM), boosting automation efficiency by 25%.",
+            "Built custom modules tailored to client needs, enhancing user experience for 1,000+ active users across tenant accounts.",
+            "Collaborated with cross-functional teams to streamline issue resolution, improving platform stability for 1,000+ users.",
         ],
     },
     {
@@ -23,9 +22,8 @@ const projects = ref([
         image_src: '/images/dashboard-alhasra.png',
         image_alt: 'Inventory Management Images',
         descriptions:[
-            "Developed and maintained a Laravel inventory management.",
-            "Implemented secure user authentication.",
-            "Added full CRUD functionality, allowing users to create, edit, and delete invoices, with the option to download Report in Excel.",
+            "Developed a web-based asset management system for 1.000+ assets across 3 schools and reducing manual reporting.",
+            "Managed operational assets and requirements, ensuring seamless foundation operations.",
         ],
     },
     {
