@@ -2,6 +2,7 @@
   import Navbar from './components/Navbar.vue'
   import Cv from './components/Cv.vue'
   import WorkExperiences from './components/WorkExperiences.vue'
+  import TechStack from './components/TechStack.vue'
   import Projects from './components/Projects.vue'
   import { onMounted, ref } from 'vue'
   
@@ -63,13 +64,9 @@
           </div>
         </div>
     </section>
-    <section id="about-me" name="about-me" class="relative min-h-screen w-full border-b border-gray-300 py-10 px-10 md:content-center ">
-        <!-- SVG decorative background -->
-        <div class="absolute inset-0 -z-10">
-          <img src="/images/bg-about-me.png" alt="background" class="w-full h-full object-cover object-right-bottom sm:object-bottom " />
-        </div>
+    <section id="about-me" name="about-me" class="relative honey-comb min-h-screen w-full border-b border-gray-300 py-10 px-10 md:content-center "  >
 
-      <div class=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:border md:border-red-600 shadow-sm shadow-red-500 rounded-xl md:py-20 md:px-10  bg-white justify-self-center">
+      <div class=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:border md:border-gray-300 shadow-sm shadow-grey-300 rounded-xl md:py-20 md:px-10  bg-white justify-self-center">
         <!-- Image -->
         <img v-animateonscroll="{ enterClass:'animate-enter slide-in-from-r-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000' }" src="/images/me.jpg" alt="Agies Wahyudi Image" class="mx-auto object-center h-48 w-96 md:h-72 md:w-120 object-cover rounded-t-xl md:rounded-xl  shadow-lg">
         <!-- Text -->
@@ -92,6 +89,12 @@
               <WorkExperiences/>
           </div>
         </div>
+      </div>
+    </section>
+    <section id="tech-stack" name="tech-stack" class="relative w-full min-h-fit border-b border-gray-300 py-20 ">
+      <h1 class=" text-4xl text-center my-10">my<span class="caret text-red-600">/</span><span class="font-semibold"></span><span class="font-semibold">Tech Stack</span></h1>
+      <div class=" max-w-screen-xl mx-auto px-5 lg:px-5">
+      <TechStack/>
       </div>
     </section>
     <section id="projects" name="projects" class="relative min-h-screen w-full border-b border-gray-300 py-10 px-5 md:content-center">

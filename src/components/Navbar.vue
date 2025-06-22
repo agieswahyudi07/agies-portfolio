@@ -5,6 +5,7 @@ const menu = ref([
   { name: 'Home', link: '#hero' },
   { name: 'About Me', link: '#about-me' },
   { name: 'Experiences', link: '#experiences' },
+  { name: 'Tech Stack', link: '#tech-stack' },
   { name: 'Projects', link: '#projects' },
 ])
 
@@ -24,12 +25,14 @@ function scrollToSection(id) {
   <nav class="fixed top-0 right-0 left-0 z-50 bg-white text-black border-b border-gray-300 px-5 py-4 lg:px-40">
     <div class="container mx-auto flex justify-between items-center">
       <!-- Brand -->
+      <button @click="scrollToSection('#hero')" class=" cursor-pointer">
       <h1 class="text-xl font-bold text-black flex items-center gap-2">
         Agies Wahyudi.
         <span class="spin-center text-red-600 text-sm">
-          <i class="pi pi-cog"></i>
+          <Icon icon="game-icons:ninja-star" class="text-5xl text-gray-600" />
         </span>
       </h1>
+      </button>
 
       <!-- Mobile toggle -->
       <button @click="isOpen = !isOpen" class="md:hidden text-black focus:outline-none">
@@ -50,7 +53,7 @@ function scrollToSection(id) {
         <li v-for="item in menu" :key="item.name">
           <button
             @click="scrollToSection(item.link)"
-            class="hover:underline hover:text-red-500 transition-colors"
+            class="hover:underline hover:text-red-500 transition-colors cursor-pointer"
           >
             {{ item.name }}
           </button>
@@ -67,7 +70,7 @@ function scrollToSection(id) {
         <li v-for="item in menu" :key="item.name">
           <button
             @click="scrollToSection(item.link)"
-            class="block w-full text-left hover:underline hover:text-red-500"
+            class="block w-full text-left hover:underline hover:text-red-500 cursor-pointer"
           >
             {{ item.name }}
           </button>
