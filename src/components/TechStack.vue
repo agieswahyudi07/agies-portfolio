@@ -34,7 +34,7 @@
             { name: 'Git', icon: 'devicon:git' },
             { name: 'GitHub', icon: 'devicon:github' },
             { name: 'Sourcetree', icon: 'devicon:sourcetree' },
-            // { name: 'Docker', icon: 'devicon:docker' },
+            { name: 'Docker', icon: 'devicon:docker' },
             // { name: 'Figma', icon: 'devicon:figma' },
             { name: 'VS Code', icon: 'devicon:vscode' },
             { name: 'ChatGPT', icon: 'arcticons:openai-chatgpt' },

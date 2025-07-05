@@ -30,7 +30,7 @@ const experiences = ref([
         job: 'Fullstack Developer',
         company: 'Software House',
         start_date: 'February 2023',
-        end_date: 'May 2023',
+        end_date: 'July 2023',
         descriptions: [
             "Delivered 5+ ERP modules (e.g., inventory, HR) for client projects, meeting 100% of deadlines and improving efficiency for 100+ users.",
             "Fixed 20+ bugs, increasing application stability for 100+ users.",
