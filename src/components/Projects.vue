@@ -10,10 +10,11 @@ const projects = ref([
         image_src: '/images/general-setting-agency.png',
         image_alt: 'Exact Match Marketing Images',
         descriptions:[
-            "Developed and maintained a multi-tenant lead generation platform, processing 10,000+ leads/month, with a 20% increase in scalability through core engine optimization.",
-            "Integrated 6+ third-party platforms (Stripe, Google Sheets, Zapier, GoHighLevel, MailboxPower, BigDBM), boosting automation efficiency by 25%.",
-            "Built custom modules tailored to client needs, enhancing user experience for 1,000+ active users across tenant accounts.",
-            "Collaborated with cross-functional teams to streamline issue resolution, improving platform stability for 1,000+ users.",
+            "Developed and maintained a multi-tenant SaaS platform serving over 100 marketing agencies and processing 150.000+ of leads monthly.",
+            "Engineered the core backend logic using Laravel, implementing queuing and caching mechanisms (Redis) to ensure reliable, high-throughput data processing from 6+ integrated APIs",
+            "Designed and optimized the database layer (MySQL), achieving a 200ms average reduction in API response times under high load.",
+            "Built and scaled the frontend experience with Vue.js, delivering custom modules that enhanced user experience for a rapidly growing user base.",
+            "Collaborated closely with the project lead on deployment strategies and infrastructure requirements to ensure overall platform stability and scalability.",
         ],
     },
     {

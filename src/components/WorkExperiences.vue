@@ -10,10 +10,11 @@ const experiences = ref([
         start_date: 'February 2024',
         end_date: 'Present',
         descriptions: [
-            "Developed and maintained a multi-tenant lead generation platform, processing 10,000+ leads/month, with a 20% increase in scalability through core engine optimization.",
-            "Integrated 6+ third-party platforms (Stripe, Google Sheets, Zapier, GoHighLevel, MailboxPower, BigDBM), boosting automation efficiency by 25%.",
-            "Built custom modules tailored to client needs, enhancing user experience for 1,000+ active users across tenant accounts.",
-            "Collaborated with cross-functional teams to streamline issue resolution, improving platform stability for 1,000+ users.",
+            "Developed and maintained a multi-tenant SaaS platform serving over 100 marketing agencies and processing 150.000+ of leads monthly.",
+            "Engineered the core backend logic using Laravel, implementing queuing and caching mechanisms (Redis) to ensure reliable, high-throughput data processing from 6+ integrated APIs",
+            "Designed and optimized the database layer (MySQL), achieving a 200ms average reduction in API response times under high load.",
+            "Built and scaled the frontend experience with Vue.js, delivering custom modules that enhanced user experience for a rapidly growing user base.",
+            "Collaborated closely with the project lead on deployment strategies and infrastructure requirements to ensure overall platform stability and scalability.",
         ],
     },
     {
@@ -32,9 +33,9 @@ const experiences = ref([
         start_date: 'February 2023',
         end_date: 'July 2023',
         descriptions: [
-            "Delivered 5+ ERP modules (e.g., inventory, HR) for client projects, meeting 100% of deadlines and improving efficiency for 100+ users.",
-            "Fixed 20+ bugs, increasing application stability for 100+ users.",
-            "Optimized database queries, reducing API response times by 200ms on average.",
+            "Delivered 5+ ERP modules (e.g., inventory, HR) for client projects, meeting 100% of deadlines and improving efficiency for 100+ users .",
+            "Fixed 50+ bugs, increasing application stability for 100+ users.",
+            "Optimized database queries on average.",
         ],
     },
 

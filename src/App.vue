@@ -73,10 +73,7 @@
         <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class=" flex flex-col content-start self-start space-y-5 text-left max-w-md justify-self-center md:justify-self-start text-gray-600 px-5 pb-5 md:pb-0 md:px-0">
           <h1  class=" text-4xl text-black">About<span class="caret text-red-600">/</span><span class="font-semibold">ME</span></h1>
           <p>
-            Fullstack Web Developer with 2+ years of experience building scalable, multi-tenant web applications using
-            Laravel, Vue.js, and REST APIs. Delivered a lead generation platform with integrations to Stripe, Zapier, and
-            GoHighLevel, processing 10,000+ leads/month. Passionate about optimizing solutions and driving client
-            success.
+            Highly-motivated Fullstack Developer with 2+ years of experience engineering high-performance, scalable web applications. Proven ability in delivering robust SaaS solutions, demonstrated by scaling a multi-tenant platform to process 150.000+ of leads monthly. Seeking to leverage expertise in Laravel, Vue.js, and system optimization to contribute to a challenging developer role in an international environment.
           </p>
         </div>
       </div>
