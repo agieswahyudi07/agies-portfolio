@@ -2,16 +2,38 @@
 @plugin  "tailwindcss-primeui";
 @import 'primeicons/primeicons.css';
 
-
 @theme {
-    --color-main: #410445;
-    --color-secondary: #410445;
-    --color-trinary: #B1B2FF;
-    --color-forth: #410445;
+    --color-main: #6366f1;
+    --color-secondary: #8b5cf6;
+    --color-trinary: #ec4899;
+    --color-forth: #f43f5e;
+  }
+
+  * {
+    scroll-behavior: smooth;
   }
 
   body {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+    color: #1f2937;
   }
-  
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  }
   

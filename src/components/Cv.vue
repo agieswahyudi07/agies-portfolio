@@ -4,14 +4,14 @@ const link = 'https://drive.google.com/file/d/11A5V9JGupyaGOioxOwuk2sJNumQM86XD/
 
 <template>
   <div
-    class="animate-float fixed bottom-26 md:bottom-6 right-4 z-50 bg-white/80 backdrop-blur-md border border-red-600 shadow-xl shadow-red-500 rounded-full px-4 md:px-5 py-2 md:py-3 flex items-center gap-2 transition-transform hover:scale-105 hover:shadow-2xl cursor-pointer group"
+    class="animate-float fixed bottom-26 md:bottom-6 right-4 z-50 bg-gradient-to-r from-indigo-600 to-purple-600 backdrop-blur-md border-2 border-indigo-500 shadow-xl shadow-indigo-500/50 rounded-full px-5 md:px-6 py-3 md:py-4 flex items-center gap-3 transition-all hover:scale-110 hover:shadow-2xl hover:shadow-indigo-500/70 cursor-pointer group"
   >
-    <i class="pi pi-cloud-download text-lg md:text-xl transition-transform group-hover:rotate-[-20deg] group-hover:scale-110"></i>
+    <i class="pi pi-cloud-download text-lg md:text-xl text-white transition-transform group-hover:rotate-[-20deg] group-hover:scale-110"></i>
 
     <a
       :href="link"
       target="_blank"
-      class=" font-semibold text-sm md:text-base hover:underline"
+      class="font-semibold text-sm md:text-base text-white hover:underline"
     >
       <span class="md:inline hidden">My Resume</span>
       <span class="md:hidden">CV</span>

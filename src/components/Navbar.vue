@@ -1,15 +1,16 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const menu = ref([
   { name: 'Home', link: '#hero' },
-  { name: 'About Me', link: '#about-me' },
-  { name: 'Experiences', link: '#experiences' },
+  { name: 'About', link: '#about-me' },
+  { name: 'Experience', link: '#experiences' },
   { name: 'Tech Stack', link: '#tech-stack' },
   { name: 'Projects', link: '#projects' },
 ])
 
 const isOpen = ref(false)
+const scrollProgress = ref(0)
 
 // Fungsi scroll smooth ke section
 function scrollToSection(id) {
@@ -19,23 +20,43 @@ function scrollToSection(id) {
     isOpen.value = false // Tutup dropdown jika mobile
   }
 }
+
+// Calculate scroll progress
+function updateScrollProgress() {
+  const windowHeight = window.innerHeight
+  const documentHeight = document.documentElement.scrollHeight
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  const scrollableHeight = documentHeight - windowHeight
+  scrollProgress.value = (scrollTop / scrollableHeight) * 100
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', updateScrollProgress)
+  updateScrollProgress()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateScrollProgress)
+})
 </script>
 
 <template>
-  <nav class="fixed top-0 right-0 left-0 z-50 bg-white text-black border-b border-gray-300 px-5 py-4 lg:px-40">
+  <nav class="fixed top-0 right-0 left-0 z-50 backdrop-blur-md bg-white/80 text-black border-b border-gray-200/50 shadow-sm px-5 py-4 lg:px-40 transition-all duration-300">
+    <!-- Scroll Progress Bar -->
+    <div class="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 transition-all duration-150" :style="{ width: scrollProgress + '%' }"></div>
     <div class="container mx-auto flex justify-between items-center">
       <!-- Brand -->
-      <button @click="scrollToSection('#hero')" class=" cursor-pointer">
-      <h1 class="text-xl font-bold text-black flex items-center gap-2">
+      <button @click="scrollToSection('#hero')" class="cursor-pointer group">
+      <h1 class="text-xl font-bold text-gray-900 flex items-center gap-2 group-hover:text-indigo-600 transition-colors">
         Agies Wahyudi.
-        <span class="spin-center text-red-600 text-sm">
-          <Icon icon="game-icons:ninja-star" class="text-5xl text-gray-600" />
+        <span class="spin-center text-indigo-600 text-sm">
+          <Icon icon="game-icons:ninja-star" class="text-2xl" />
         </span>
       </h1>
       </button>
 
       <!-- Mobile toggle -->
-      <button @click="isOpen = !isOpen" class="md:hidden text-black focus:outline-none">
+      <button @click="isOpen = !isOpen" class="md:hidden text-gray-700 focus:outline-none hover:text-indigo-600 transition-colors">
         <svg v-if="!isOpen" class="w-6 h-6" fill="none" stroke="currentColor"
           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -49,13 +70,14 @@ function scrollToSection(id) {
       </button>
 
       <!-- Desktop Menu -->
-      <ul class="hidden md:flex space-x-6 font-semibold">
+      <ul class="hidden md:flex space-x-8 font-medium">
         <li v-for="item in menu" :key="item.name">
           <button
             @click="scrollToSection(item.link)"
-            class="hover:underline hover:text-red-500 transition-colors cursor-pointer"
+            class="relative text-gray-700 hover:text-indigo-600 transition-colors cursor-pointer group"
           >
             {{ item.name }}
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
           </button>
         </li>
       </ul>
@@ -64,13 +86,13 @@ function scrollToSection(id) {
     <!-- Mobile Dropdown -->
     <div
       v-if="isOpen"
-      class="md:hidden mt-3 bg-gray-100 p-4 rounded-md transition-all duration-300 font-semibold"
+      class="md:hidden mt-3 backdrop-blur-md bg-white/90 p-4 rounded-lg transition-all duration-300 font-medium shadow-lg border border-gray-200/50"
     >
-      <ul class="space-y-2">
+      <ul class="space-y-3">
         <li v-for="item in menu" :key="item.name">
           <button
             @click="scrollToSection(item.link)"
-            class="block w-full text-left hover:underline hover:text-red-500 cursor-pointer"
+            class="block w-full text-left text-gray-700 hover:text-indigo-600 hover:translate-x-2 transition-all cursor-pointer py-2"
           >
             {{ item.name }}
           </button>

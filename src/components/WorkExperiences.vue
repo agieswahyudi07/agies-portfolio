@@ -1,7 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue'
-import Accordion from 'primevue/accordion'
-import AccordionTab from 'primevue/accordiontab'
+import { ref } from 'vue'
+
 //DATA
 const experiences = ref([
     {
@@ -23,8 +22,8 @@ const experiences = ref([
         start_date: 'July 2023',
         end_date: 'February 2024',
         descriptions: [
-            "Developed a web-based asset management system for 1.000+ assets across 3 schools and reducing manual reporting.",
-            "Managed operational assets and requirements, ensuring seamless foundation operations.",
+            "Developed a comprehensive web-based asset management system tracking 1,000+ assets across 3 school locations, eliminating manual reporting and reducing administrative time by 60%.",
+            "Streamlined operational workflows with automated tracking and reporting features, improving data accuracy and enabling real-time asset visibility for foundation management.",
         ],
     },
     {
@@ -38,106 +37,141 @@ const experiences = ref([
             "Optimized database queries on average.",
         ],
     },
-
 ])
-const indexExperiences = ref([]) 
-//DATA
+
+const openItems = ref(new Set([0])) // Open first item by default
 
 // METHODS 
-function get_index(array) {
-    return array.map((_, index) => index);
+function toggleAccordion(index) {
+    if (openItems.value.has(index)) {
+        openItems.value.delete(index)
+    } else {
+        openItems.value.add(index)
+    }
+}
+
+function isOpen(index) {
+    return openItems.value.has(index)
 }
 // METHODS 
-
-// HOOKS 
-onMounted(() => {
-    indexExperiences.value = get_index(experiences.value)
-})
-// HOOKS 
 </script>
 
 <template>
-  <Accordion 
-    :activeIndex="indexExperiences" 
-    :multiple="true"
-    pt:root:v-animateonscroll="{
-                    enterClass: 'animate-enter slide-in-from-r-8 animate-duration-1000',
-                    leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000'
-                }" 
-     :pt="{
-            root: { 
-                class: 'swing-in-top-fwd flex flex-col gap-5 border rounded-lg border-gray-300 justify-self-center md:px-5 md:py-5 sm:min-w-150 md:min-w-200 lg:min-w-250 w-full',
-                // v-animateonscroll: {
-                //     enterClass: 'animate-enter slide-in-from-r-8 animate-duration-1000',
-                //     leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000'
-                // }
-            },
-            tab: { class: 'mb-3 ' }
-        }"
-    >
-    <AccordionTab
+  <div class="relative">
+    <!-- Timeline Line (Desktop) -->
+    <div class="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-200 via-purple-200 to-pink-200"></div>
+    
+    <div 
       v-for="(item, index) in experiences"
       :key="index"
-      :header="item.job"
-      :pt="{
-        header: {
-          class: ' flex text-xl justify-between items-center cursor-pointer px-4 py-2 hover:underline hover:text-red-500 hover:bg-gray-200 text-sm font-medium border border-gray-300 rounded-md w-full'
-        },
-        content: {
-          class: ' p-4 bg-white border border-gray-300 rounded-lg shadow-sm mt-3'
-        }
+      v-animateonscroll="{
+        enterClass: 'animate-enter slide-in-from-r-8 animate-duration-1000',
+        leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000'
       }"
+      class="relative mb-6 md:pl-20"
     >
-      <div class="flex flex-col gap-3 p-5 rounded-sm bg-gray-800 inset-shadow-sm inset-shadow-red-500">
-        <h1 class="text-xl font-semibold text-center text-gray-200">
-          {{ item.company }}
-        </h1>
-        <p class="text-sm text-center text-gray-400">
-          {{ item.start_date }} - {{ item.end_date }}
-        </p>
-        <ul class="list-disc list-inside text-sm text-gray-300 space-y-1 text-left">
-          <li v-for="(text, i) in item.descriptions" :key="i">{{ text }}</li>
-        </ul>
+      <!-- Timeline Dot (Desktop) -->
+      <div class="hidden md:block absolute left-0 top-6 w-4 h-4 bg-gradient-to-br from-indigo-500 to-purple-500 rounded-full border-4 border-white shadow-lg z-10"></div>
+      
+      <!-- Experience Card -->
+      <div class="group relative bg-white border-2 border-gray-200 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
+        <!-- Gradient Accent Bar -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600"></div>
+        
+        <!-- Header Section -->
+        <div 
+          @click="toggleAccordion(index)"
+          class="cursor-pointer px-6 py-5 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-purple-50 transition-all duration-300"
+        >
+          <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  {{ item.company.charAt(0) }}
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                    {{ item.job }}
+                  </h3>
+                  <p class="text-base font-semibold text-indigo-600">
+                    {{ item.company }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="px-4 py-2 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-lg border border-indigo-200">
+                <p class="text-sm font-semibold text-indigo-700 whitespace-nowrap">
+                  {{ item.start_date }} - {{ item.end_date }}
+                </p>
+              </div>
+              <button class="w-10 h-10 rounded-lg bg-gray-100 hover:bg-indigo-100 flex items-center justify-center transition-all duration-300 group-hover:bg-indigo-500 group-hover:text-white">
+                <i :class="['pi transition-transform duration-300', isOpen(index) ? 'pi-chevron-up' : 'pi-chevron-down']"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Content Section -->
+        <transition name="slide-down">
+          <div 
+            v-show="isOpen(index)"
+            class="px-6 pb-6"
+          >
+            <div class="pt-4 border-t border-gray-200">
+              <ul class="list-none space-y-4">
+                <li 
+                  v-for="(text, i) in item.descriptions" 
+                  :key="i" 
+                  class="flex items-start gap-3 group/item"
+                >
+                  <div class="mt-1.5 flex-shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center shadow-sm group-hover/item:scale-110 transition-transform duration-300">
+                    <i class="pi pi-check text-white text-xs"></i>
+                  </div>
+                  <p class="text-base text-gray-700 leading-relaxed group-hover/item:text-gray-900 transition-colors flex-1">
+                    {{ text }}
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </transition>
       </div>
-    </AccordionTab>
-  </Accordion>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-.swing-in-top-fwd {
-	-webkit-animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
-	        animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+/* Slide down animation for accordion content */
+.slide-down-enter-active {
+  transition: all 0.3s ease-out;
 }
-@-webkit-keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
+
+.slide-down-leave-active {
+  transition: all 0.3s ease-in;
 }
-@keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
+
+.slide-down-enter-from {
+  opacity: 0;
+  transform: translateY(-10px);
+  max-height: 0;
+}
+
+.slide-down-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 1000px;
+}
+
+.slide-down-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 1000px;
+}
+
+.slide-down-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+  max-height: 0;
 }
 </style>

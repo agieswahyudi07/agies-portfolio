@@ -6,7 +6,7 @@
   import Projects from './components/Projects.vue'
   import { onMounted, ref } from 'vue'
   
-  const fullText = ref("I'm a Fullstack Developer based in Jakarta. I build fast, scalable, and user-friendly web applications. With a strong foundation in both frontend and backend development, I create digital solutions that are both functional and visually engaging.")
+  const fullText = ref("I transform ideas into powerful digital experiences. Specializing in full-stack development, I craft scalable web applications that drive business growth. From concept to deployment, I deliver solutions that are fast, reliable, and user-centric.")
   const typedText = ref('')
   const index = ref(0)
 
@@ -14,7 +14,7 @@
     if (index.value < fullText.value.length) {
       typedText.value += fullText.value.charAt(index.value);
       index.value++;
-      setTimeout(typeWriter, 40); // kecepatan ketik per huruf
+      setTimeout(typeWriter, 35);
     }
   }
 
@@ -32,96 +32,191 @@
 <template>
     <Navbar/>
     <Cv/>  
-    <section id="hero" name="hero" class="relative honey-comb min-h-full min-w-full border border-b-gray-300">
-        <div class="relative mx-auto h-dvh content-center text-center max-w-screen-xl pt-20 pb-15 md:pt-0 md:pb-0">
-          <h1  class="tracking-in-contract text-lg md:text-1xl px-5 tracking-tight md:tracking-wide">Hello, my name is</h1>
-          <h1  class="tracking-in-contract text-4xl md:text-6xl font-semibold px-5 tracking-tight md:tracking-wide">Ramadhan Agies Ananda Wahyudi</h1>
-          <p class="typewriter-wrap text-sm md:text-base text-justify px-5 md:mx-40 md:text-center text-gray-600 mt-5">
-            {{ typedText }}<span class="caret text-red-600 text-xl">|</span>
+    <section id="hero" name="hero" class="relative min-h-screen min-w-full overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 overflow-hidden">
+          <div class="absolute top-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+          <div class="absolute top-40 right-10 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+          <div class="absolute -bottom-8 left-1/2 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div class="relative mx-auto h-screen content-center text-center max-w-screen-xl pt-20 pb-15 md:pt-0 md:pb-0 flex flex-col justify-center items-center px-5">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100/80 backdrop-blur-sm border border-indigo-200/50 mb-4 animate-fade-in">
+            <span class="w-2 h-2 bg-indigo-600 rounded-full animate-pulse"></span>
+            <span class="text-sm font-medium text-indigo-700">Available for new projects</span>
+          </div>
+          <h1 class="tracking-in-contract text-lg md:text-xl px-5 tracking-tight md:tracking-wide text-gray-600 font-medium mb-2">Hello, I'm</h1>
+          <h1 class="tracking-in-contract text-4xl md:text-7xl font-bold px-5 tracking-tight md:tracking-wide bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">
+            Ramadhan Agies Ananda Wahyudi
+          </h1>
+          <div class="mb-4">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-sm md:text-base font-semibold shadow-lg">
+              Fullstack Developer
+            </span>
+          </div>
+          <p class="typewriter-wrap text-base md:text-lg text-justify px-5 md:mx-40 md:text-center text-gray-600 mt-5 max-w-3xl leading-relaxed">
+            {{ typedText }}<span class="caret text-indigo-600 text-xl font-bold">|</span>
           </p>
-          <div class="flex flex-row gap-5 text-2xl justify-self-center mt-5">
-            <a target="_blank" href="https://github.com/agieswahyudi07/">
-              <i class="pi pi-github hover:text-red-500" ></i>
+          <div class="flex flex-row gap-6 text-3xl justify-center mt-8">
+            <a target="_blank" href="https://github.com/agieswahyudi07/" class="group">
+              <i class="pi pi-github text-gray-600 hover:text-indigo-600 transition-all duration-300 hover:scale-110 hover:rotate-6"></i>
             </a>
-            <a target="_blank" href="https://www.linkedin.com/in/agieswahyudi/">
-              <i class="pi pi-linkedin hover:text-red-500"></i>
+            <a target="_blank" href="https://www.linkedin.com/in/agieswahyudi/" class="group">
+              <i class="pi pi-linkedin text-gray-600 hover:text-indigo-600 transition-all duration-300 hover:scale-110 hover:rotate-6"></i>
             </a>
-            <a target="_blank" href="https://www.instagram.com/agieswahyudi_/">
-              <i class="pi pi-instagram hover:text-red-500"></i>
+            <a target="_blank" href="https://www.instagram.com/agieswahyudi_/" class="group">
+              <i class="pi pi-instagram text-gray-600 hover:text-pink-600 transition-all duration-300 hover:scale-110 hover:rotate-6"></i>
             </a>
-            <a target="_blank" href="mailto:agieswahyudi@gmail.com">
-              <i class="pi pi-envelope hover:text-red-500"></i>
+            <a target="_blank" href="mailto:agieswahyudi@gmail.com" class="group">
+              <i class="pi pi-envelope text-gray-600 hover:text-indigo-600 transition-all duration-300 hover:scale-110 hover:rotate-6"></i>
             </a>
-           <Button
-            class="button-float flex items-center gap-2 px-4 py-2 cursor-pointer absolute bottom-30 left-1/2 transform -translate-x-1/2 ring-1 ring-gray-300 bg-white hover:bg-red-100 hover:ring-red-500 text-black rounded-full text-base shadow-md transition duration-300"
-            rounded
-            aria-label="Scroll to About Me"
-            @click="scrollToAbout"
-          >
-            <span class="font-medium">Get to know me!</span>
-            <i class="pi pi-arrow-down text-lg"></i>
-          </Button>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 mt-12">
+            <Button
+              class="button-float flex items-center gap-2 px-8 py-3 cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-full text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              rounded
+              aria-label="Scroll to About Me"
+              @click="scrollToAbout"
+            >
+              <span>Explore My Work</span>
+              <i class="pi pi-arrow-down text-lg"></i>
+            </Button>
+            <a 
+              href="mailto:agieswahyudi@gmail.com"
+              class="flex items-center gap-2 px-8 py-3 bg-white hover:bg-gray-50 text-gray-700 rounded-full text-base font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 border-2 border-gray-200"
+            >
+              <i class="pi pi-envelope"></i>
+              <span>Get In Touch</span>
+            </a>
           </div>
         </div>
     </section>
-    <section id="about-me" name="about-me" class="relative honey-comb min-h-screen w-full border-b border-gray-300 py-10 px-10 md:content-center "  >
-
-      <div class=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:border md:border-gray-300 shadow-sm shadow-grey-300 rounded-xl md:py-20 md:px-10  bg-white justify-self-center">
-        <!-- Image -->
-        <img v-animateonscroll="{ enterClass:'animate-enter slide-in-from-r-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000' }" src="/images/me.jpg" alt="Agies Wahyudi Image" class="mx-auto object-center h-48 w-96 md:h-72 md:w-120 object-cover rounded-t-xl md:rounded-xl  shadow-lg">
-        <!-- Text -->
-        <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class=" flex flex-col content-start self-start space-y-5 text-left max-w-md justify-self-center md:justify-self-start text-gray-600 px-5 pb-5 md:pb-0 md:px-0">
-          <h1  class=" text-4xl text-black">About<span class="caret text-red-600">/</span><span class="font-semibold">ME</span></h1>
-          <p>
-            Highly-motivated Fullstack Developer with 2+ years of experience engineering high-performance, scalable web applications. Proven ability in delivering robust SaaS solutions, demonstrated by scaling a multi-tenant platform to process 150.000+ of leads monthly. Seeking to leverage expertise in Laravel, Vue.js, and system optimization to contribute to a challenging developer role in an international environment.
+    <section id="about-me" name="about-me" class="relative min-h-screen w-full py-20 px-5 md:px-10 bg-white">
+      <div class="max-w-screen-xl mx-auto">
+        <div class="text-center mb-16">
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+            About<span class="text-indigo-600">/</span><span class="font-bold">ME</span>
+          </h1>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Crafting digital solutions that make a difference
           </p>
         </div>
-      </div>
-    </section>
-    <section id="experiences" name="experiences" class="relative min-h-screen w-full border-b border-gray-300 py-10 px-5 md:content-center">
-      <h1 class=" text-4xl text-center my-10">my<span class="caret text-red-600">/</span><span class="font-semibold"></span><span class="font-semibold">Experiences</span></h1>
-      <div class=" max-w-screen-xl mx-auto grid grid-cols-1 justify-items-center md:py-5 mt-5">
-        <div class="space-y-10 text-center max-w-md">
-          <div class="w-full">
-              <WorkExperiences/>
+        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12 md:gap-16">
+          <!-- Image -->
+          <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-r-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000' }" class="relative group">
+            <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+            <img src="/images/me.jpg" alt="Agies Wahyudi Image" class="relative mx-auto object-center h-64 w-full md:h-96 md:w-full object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <!-- Text -->
+          <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class="flex flex-col space-y-6 text-left">
+            <p class="text-lg text-gray-600 leading-relaxed">
+              I'm a passionate Fullstack Developer with 2+ years of experience building high-performance, scalable web applications. My journey has been defined by turning complex challenges into elegant solutions that drive real business value.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed">
+              Currently, I'm engineering robust SaaS platforms that process 150,000+ leads monthly, serving over 100 marketing agencies. My expertise spans the entire development stack — from crafting intuitive user interfaces with Vue.js to architecting resilient backend systems with Laravel.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-4">
+              <div class="p-4 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl border border-indigo-100 hover:shadow-lg transition-shadow">
+                <div class="text-3xl font-bold text-indigo-600">2+</div>
+                <div class="text-sm text-gray-600 font-medium">Years Experience</div>
+              </div>
+              <div class="p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100 hover:shadow-lg transition-shadow">
+                <div class="text-3xl font-bold text-purple-600">150K+</div>
+                <div class="text-sm text-gray-600 font-medium">Leads Processed</div>
+              </div>
+              <div class="p-4 bg-gradient-to-br from-pink-50 to-indigo-50 rounded-xl border border-pink-100 hover:shadow-lg transition-shadow">
+                <div class="text-3xl font-bold text-pink-600">100+</div>
+                <div class="text-sm text-gray-600 font-medium">Agencies Served</div>
+              </div>
+              <div class="p-4 bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl border border-indigo-100 hover:shadow-lg transition-shadow">
+                <div class="text-3xl font-bold text-blue-600">99.9%</div>
+                <div class="text-sm text-gray-600 font-medium">Uptime</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="tech-stack" name="tech-stack" class="relative w-full min-h-fit border-b border-gray-300 py-20 ">
-      <h1 class=" text-4xl text-center my-10">my<span class="caret text-red-600">/</span><span class="font-semibold"></span><span class="font-semibold">Tech Stack</span></h1>
-      <div class=" max-w-screen-xl mx-auto px-5 lg:px-5">
-      <TechStack/>
-      </div>
-    </section>
-    <section id="projects" name="projects" class="relative min-h-screen w-full border-b border-gray-300 py-10 px-5 md:content-center">
-      <h1 class=" text-4xl text-center my-10">my<span class="caret text-red-600">/</span><span class="font-semibold"></span><span class="font-semibold">Projects</span></h1>
-      <div class=" max-w-screen-xl mx-auto ">
-        <Projects/>
-      </div>
-    </section>
-    <section id="footer" name="footer" class="min-h-fit w-full border-b border-gray-300 py-5 px-5 md:content-center flex flex-col items-center gap-2">
-      <div class="py-10 flex flex-col items-center md:content-center gap-5">
-        <div class="text-center space-y-5">
-            <p  class="tracking-in-contract text-3xl md:text-5xl font-semibold px-5 tracking-tight md:tracking-wide">Let's work together!</p>
-            <p  class="tracking-in-contract text-sm md:text-lg px-5 tracking-">Open for freelance and collaboration — reach me via</p>
+    <section id="experiences" name="experiences" class="relative min-h-screen w-full py-20 px-5 md:px-10 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-screen-xl mx-auto">
+        <div class="text-center mb-16">
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+            my<span class="text-indigo-600">/</span><span class="font-bold">Experiences</span>
+          </h1>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Building impactful solutions, one project at a time
+          </p>
         </div>
-        <div class="flex flex-row gap-5 text-3xl">
-          <a target="_blank" href="https://github.com/agieswahyudi07/">
+        <div class="max-w-4xl mx-auto">
+          <WorkExperiences/>
+        </div>
+      </div>
+    </section>
+    <section id="tech-stack" name="tech-stack" class="relative w-full min-h-fit py-20 px-5 md:px-10 bg-white">
+      <div class="max-w-screen-xl mx-auto">
+        <div class="text-center mb-16">
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+            my<span class="text-indigo-600">/</span><span class="font-bold">Tech Stack</span>
+          </h1>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Technologies I work with to bring ideas to life
+          </p>
+        </div>
+        <div class="px-5 lg:px-5">
+          <TechStack/>
+        </div>
+      </div>
+    </section>
+    <section id="projects" name="projects" class="relative min-h-screen w-full py-20 px-5 md:px-10 bg-gradient-to-b from-gray-50 to-white">
+      <div class="max-w-screen-xl mx-auto">
+        <div class="text-center mb-16">
+          <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
+            my<span class="text-indigo-600">/</span><span class="font-bold">Projects</span>
+          </h1>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Showcasing real-world solutions that drive results
+          </p>
+        </div>
+        <div class="space-y-24">
+          <Projects/>
+        </div>
+      </div>
+    </section>
+    <section id="footer" name="footer" class="min-h-fit w-full py-20 px-5 md:px-10 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 text-white">
+      <div class="max-w-screen-xl mx-auto py-10 flex flex-col items-center gap-10">
+        <div class="text-center space-y-6 max-w-3xl">
+          <p class="tracking-in-contract text-4xl md:text-6xl font-bold px-5 tracking-tight md:tracking-wide">
+            Let's Build Something Amazing Together
+          </p>
+          <p class="tracking-in-contract text-lg md:text-xl px-5 text-indigo-100 leading-relaxed">
+            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Whether you need a full-stack developer, technical consultant, or a collaborator for your next big idea — let's connect!
+          </p>
+          <div class="pt-4">
+            <a 
+              href="mailto:agieswahyudi@gmail.com"
+              class="inline-flex items-center gap-2 px-8 py-4 bg-white text-indigo-600 rounded-full text-base font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:bg-indigo-50"
+            >
+              <i class="pi pi-envelope"></i>
+              <span>Start a Conversation</span>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-row gap-6 text-4xl pt-4">
+          <a target="_blank" href="https://github.com/agieswahyudi07/" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-indigo-200" aria-label="GitHub">
             <i class="pi pi-github"></i>
           </a>
-          <a target="_blank" href="https://www.linkedin.com/in/agieswahyudi/">
-              <i class="pi pi-linkedin"></i>
-            </a>
-            <a target="_blank" href="https://www.instagram.com/agieswahyudi_/">
-              <i class="pi pi-instagram"></i>
-            </a>
-            <a target="_blank" href="mailto:agieswahyudi@gmail.com">
-              <i class="pi pi-envelope"></i>
-            </a>
+          <a target="_blank" href="https://www.linkedin.com/in/agieswahyudi/" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-indigo-200" aria-label="LinkedIn">
+            <i class="pi pi-linkedin"></i>
+          </a>
+          <a target="_blank" href="https://www.instagram.com/agieswahyudi_/" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-pink-200" aria-label="Instagram">
+            <i class="pi pi-instagram"></i>
+          </a>
+          <a target="_blank" href="mailto:agieswahyudi@gmail.com" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-indigo-200" aria-label="Email">
+            <i class="pi pi-envelope"></i>
+          </a>
         </div>
-        <div class="text-sm text-center">
-          ©2025 Agies Wahyudi. All rights reserved.<span class="caret text-red-600 text-xl">|</span>
+        <div class="text-sm text-center text-indigo-100 pt-8 border-t border-white/20 w-full max-w-md">
+          <p>©2025 Agies Wahyudi. Crafted with passion in Jakarta, Indonesia.<span class="caret text-white text-xl">|</span></p>
         </div>
       </div>
     </section>
@@ -208,54 +303,47 @@
 
 /*  ANIMATIONS  */
 
-/* STYLES */
-.gridlines {
-  
-  width: 100%;
-  height: 100vh;
- 
-  background: #333;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.7) .1em, transparent .1em), linear-gradient(90deg, rgba(255, 255, 255, 0.7) .1em, transparent .1em);
-  background-size: 3em 3em;
+/* Animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
 }
 
-.wavy {
-  margin: 0;
-  padding: 0;
-  
-  width: 100%;
-  height: 100vh;
- 
-  background-color: #1F2937;
-  opacity: 1;
-  background-size: 26px 26px;
-  background-image: repeating-linear-gradient(45deg, #ffffff 0, #ffffff 2.6px, #1F2937 0, #1F2937 50%);
+.animate-blob {
+  animation: blob 7s infinite;
 }
 
-.honey-comb {
-  position: relative;
-  z-index: 0;
-  overflow: hidden;
+.animation-delay-2000 {
+  animation-delay: 2s;
 }
 
-.honey-comb::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.2; /* opacity background tanpa memengaruhi children */
-  background:
-      radial-gradient(circle farthest-side at 0% 50%,#ffffff 23.5%,#0000 0)105px 150px,
-      radial-gradient(circle farthest-side at 0% 50%,#ffb5b5 24%,#0000 0)95px 150px,
-      linear-gradient(#ffffff 14%,#0000 0, #0000 85%,#ffffff 0)0 0,
-      linear-gradient(150deg,#ffffff 24%,#ffb5b5 0,#ffb5b5 26%,#0000 0,#0000 74%,#ffb5b5 0,#ffb5b5 76%,#ffffff 0)0 0,
-      linear-gradient(30deg,#ffffff 24%,#ffb5b5 0,#ffb5b5 26%,#0000 0,#0000 74%,#ffb5b5 0,#ffb5b5 76%,#ffffff 0)0 0,
-      linear-gradient(90deg,#ffb5b5 2%,#ffffff 0,#ffffff 98%,#ffb5b5 0%)0 0 #ffffff;
-  background-size: 200px 300px;
-  background-color: #ffffff;
+.animation-delay-4000 {
+  animation-delay: 4s;
 }
 
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-/* STYLES */
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
 
 </style>
