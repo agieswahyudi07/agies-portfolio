@@ -90,7 +90,7 @@
             { name: 'Sourcetree', icon: 'devicon:sourcetree' },
             { name: 'Docker', icon: 'devicon:docker' },
             { name: 'VS Code', icon: 'devicon:vscode' },
-            { name: 'Cursor', icon: 'devicon:cursor' },
+            { name: 'Cursor', icon: 'catppuccin:cursor' },
             { name: 'Postman', icon: 'devicon:postman' }
         ]
     }
