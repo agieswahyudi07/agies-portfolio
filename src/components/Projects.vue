@@ -130,6 +130,8 @@ const projects = ref([
       <img 
         :src="item.image_src" 
         :alt="item.image_alt" 
+        loading="lazy"
+        decoding="async"
         class="relative mx-auto w-full max-w-2xl md:max-w-4xl lg:max-w-5xl object-contain rounded-2xl shadow-2xl transition-transform duration-300 ease-in-out group-hover:scale-105"
       >
     </div>

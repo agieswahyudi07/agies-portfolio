@@ -58,16 +58,16 @@
             {{ typedText }}<span class="caret text-indigo-600 text-xl font-bold">|</span>
           </p>
           <div class="flex flex-row gap-6 text-3xl justify-center mt-8">
-            <a target="_blank" href="https://github.com/agieswahyudi07/" class="group">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/agieswahyudi07/" class="group" aria-label="GitHub Profile">
               <i class="pi pi-github text-gray-600 hover:text-indigo-600 transition-all duration-300 hover:scale-110 hover:rotate-6"></i>
             </a>
-            <a target="_blank" href="https://www.linkedin.com/in/agieswahyudi/" class="group">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/agieswahyudi/" class="group" aria-label="LinkedIn Profile">
               <i class="pi pi-linkedin text-gray-600 hover:text-indigo-600 transition-all duration-300 hover:scale-110 hover:rotate-6"></i>
             </a>
-            <a target="_blank" href="https://www.instagram.com/agieswahyudi_/" class="group">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/agieswahyudi_/" class="group" aria-label="Instagram Profile">
               <i class="pi pi-instagram text-gray-600 hover:text-pink-600 transition-all duration-300 hover:scale-110 hover:rotate-6"></i>
             </a>
-            <a target="_blank" href="mailto:agieswahyudi@gmail.com" class="group">
+            <a target="_blank" rel="noopener noreferrer" href="mailto:agieswahyudi@gmail.com" class="group" aria-label="Send Email">
               <i class="pi pi-envelope text-gray-600 hover:text-indigo-600 transition-all duration-300 hover:scale-110 hover:rotate-6"></i>
             </a>
           </div>
@@ -105,7 +105,15 @@
           <!-- Image -->
           <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-r-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-r-8 animate-duration-1000' }" class="relative group">
             <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-            <img src="/images/me.jpg" alt="Agies Wahyudi Image" class="relative mx-auto object-center h-64 w-full md:h-96 md:w-full object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-300">
+            <img 
+            src="/images/me.jpg" 
+            alt="Agies Wahyudi - Fullstack Developer based in Jakarta, Indonesia" 
+            loading="lazy"
+            decoding="async"
+            width="400"
+            height="400"
+            class="relative mx-auto object-center h-64 w-full md:h-96 md:w-full object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-300"
+          >
           </div>
           <!-- Text -->
           <div v-animateonscroll="{ enterClass:'animate-enter slide-in-from-l-8 animate-duration-1000',leaveClass: 'animate-leave slide-out-to-l-8 animate-duration-1000' }" class="flex flex-col space-y-6 text-left">
@@ -202,16 +210,16 @@
           </div>
         </div>
         <div class="flex flex-row gap-6 text-4xl pt-4">
-          <a target="_blank" href="https://github.com/agieswahyudi07/" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-indigo-200" aria-label="GitHub">
+          <a target="_blank" rel="noopener noreferrer" href="https://github.com/agieswahyudi07/" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-indigo-200" aria-label="GitHub">
             <i class="pi pi-github"></i>
           </a>
-          <a target="_blank" href="https://www.linkedin.com/in/agieswahyudi/" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-indigo-200" aria-label="LinkedIn">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/agieswahyudi/" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-indigo-200" aria-label="LinkedIn">
             <i class="pi pi-linkedin"></i>
           </a>
-          <a target="_blank" href="https://www.instagram.com/agieswahyudi_/" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-pink-200" aria-label="Instagram">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/agieswahyudi_/" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-pink-200" aria-label="Instagram">
             <i class="pi pi-instagram"></i>
           </a>
-          <a target="_blank" href="mailto:agieswahyudi@gmail.com" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-indigo-200" aria-label="Email">
+          <a target="_blank" rel="noopener noreferrer" href="mailto:agieswahyudi@gmail.com" class="hover:scale-110 hover:rotate-6 transition-all duration-300 hover:text-indigo-200" aria-label="Email">
             <i class="pi pi-envelope"></i>
           </a>
         </div>

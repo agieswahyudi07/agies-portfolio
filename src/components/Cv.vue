@@ -11,7 +11,9 @@ const link = 'https://drive.google.com/file/d/11A5V9JGupyaGOioxOwuk2sJNumQM86XD/
     <a
       :href="link"
       target="_blank"
+      rel="noopener noreferrer"
       class="font-semibold text-sm md:text-base text-white hover:underline"
+      aria-label="Download Resume"
     >
       <span class="md:inline hidden">My Resume</span>
       <span class="md:hidden">CV</span>
