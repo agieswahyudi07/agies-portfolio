@@ -16,15 +16,15 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
+    // Fix for primeicons CSS import
+    dedupe: ['primeicons'],
   },
   build: {
-    // Enable minification
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
+    // Enable minification (using esbuild which is faster and included by default)
+    minify: 'esbuild',
+    // Remove console and debugger in production
+    esbuild: {
+      drop: ['console', 'debugger'],
     },
     // Optimize chunk splitting
     rollupOptions: {
@@ -32,7 +32,7 @@ export default defineConfig({
         manualChunks: {
           'vendor-vue': ['vue'],
           'vendor-primevue': ['primevue'],
-          'vendor-icons': ['primeicons', '@iconify/vue'],
+          'vendor-icons': ['@iconify/vue'],
         },
       },
     },
@@ -46,5 +46,12 @@ export default defineConfig({
   // Optimize dependencies
   optimizeDeps: {
     include: ['vue', 'primevue', '@iconify/vue'],
+    exclude: ['primeicons'], // Exclude primeicons from optimization as it's CSS-only
+  },
+  // Handle CSS imports properly
+  css: {
+    postcss: {
+      plugins: [],
+    },
   },
 })
