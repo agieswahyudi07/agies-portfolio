@@ -130,7 +130,7 @@
               </div>
               <div class="p-4 bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl border border-purple-100 hover:shadow-lg transition-shadow">
                 <div class="text-3xl font-bold text-purple-600">150K+</div>
-                <div class="text-sm text-gray-600 font-medium">Leads Processed</div>
+                <div class="text-sm text-gray-600 font-medium">Leads Processed Monthly</div>
               </div>
               <div class="p-4 bg-gradient-to-br from-pink-50 to-indigo-50 rounded-xl border border-pink-100 hover:shadow-lg transition-shadow">
                 <div class="text-3xl font-bold text-pink-600">100+</div>

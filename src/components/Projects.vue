@@ -38,6 +38,7 @@ const projects = ref([
         image_alt: 'Landing Page of SPNF SKB Sukabumi Images',
         category: 'Landing Page',
         tech: ['Laravel', 'Livewire', 'Filament'],
+        website: 'https://spnfskb-sukabumi.sch.id', // Add website URL here if available
         descriptions:[
             "Built a modern, responsive landing page using Laravel Livewire, providing an engaging digital presence for the educational institution.",
             "Integrated Filament admin panel for seamless content management, allowing non-technical staff to update announcements and news easily.",
@@ -52,6 +53,7 @@ const projects = ref([
         image_alt: 'Landing Page of Landingo Images',
         category: 'Business Website',
         tech: ['Vue.js', 'Tailwind CSS'],
+        website: 'https://landingo.id', // Add website URL here if available (e.g., 'https://landingo.com')
         descriptions:[
             "Created my own business landing page to showcase professional website building services, demonstrating full-stack capabilities.",
             "Designed a conversion-optimized interface with compelling value propositions, clear service offerings, and strategic call-to-action placements.",
@@ -63,6 +65,11 @@ const projects = ref([
 //DATA
 
 //METHODS
+const openWebsite = (url) => {
+  if (url && typeof window !== 'undefined') {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+}
 //METHODS
 
 
@@ -111,12 +118,27 @@ const projects = ref([
           <p>{{ text }}</p>
         </div>
       </div>
+      
+      <!-- View Website Button (only show if website URL exists) -->
+      <div v-if="item.website" class="pt-4">
+        <a 
+          :href="item.website" 
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-lg text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 group/btn"
+          aria-label="Visit website"
+        >
+          <i class="pi pi-external-link text-base group-hover/btn:translate-x-1 transition-transform duration-300"></i>
+          <span>View Website</span>
+        </a>
+      </div>
     </div>
 
     <!-- Image -->
     <div 
       :class="[
         'relative group order-1',
+        item.website ? 'cursor-pointer' : '',
         (index % 2 == 0) ? 'md:order-2' : 'md:order-1'
       ]"
       v-animateonscroll="{
@@ -125,6 +147,7 @@ const projects = ref([
           : 'animate-enter slide-in-from-l-8 animate-duration-1000',
         leaveClass: 'animate-leave fade-out-0'
       }"
+      @click="item.website ? openWebsite(item.website) : null"
     >
       <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
       <img 
@@ -132,8 +155,21 @@ const projects = ref([
         :alt="item.image_alt" 
         loading="lazy"
         decoding="async"
-        class="relative mx-auto w-full max-w-2xl md:max-w-4xl lg:max-w-5xl object-contain rounded-2xl shadow-2xl transition-transform duration-300 ease-in-out group-hover:scale-105"
+        :class="[
+          'relative mx-auto w-full max-w-2xl md:max-w-4xl lg:max-w-5xl object-contain rounded-2xl shadow-2xl transition-transform duration-300 ease-in-out group-hover:scale-105',
+          item.website ? 'cursor-pointer' : ''
+        ]"
       >
+      <!-- Click indicator overlay (only show if website exists) -->
+      <div 
+        v-if="item.website"
+        class="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 rounded-2xl transition-all duration-300"
+      >
+        <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-lg">
+          <i class="pi pi-external-link text-indigo-600"></i>
+          <span class="text-sm font-semibold text-indigo-600">Click to visit</span>
+        </div>
+      </div>
     </div>
   </div>
 </template>

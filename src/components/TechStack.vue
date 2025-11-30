@@ -1,5 +1,5 @@
 <script setup>
-    import {ref} from 'vue'
+    import {ref, onMounted, nextTick} from 'vue'
 
     const getHoverColorClass = (textColor) => {
         const colorMap = {
@@ -11,6 +11,29 @@
         }
         return colorMap[textColor] || 'group-hover:text-indigo-600'
     }
+
+    onMounted(() => {
+        nextTick(() => {
+            // Use Intersection Observer for smooth animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('tech-stack-visible')
+                        observer.unobserve(entry.target)
+                    }
+                })
+            }, {
+                threshold: 0.1,
+                rootMargin: '100px'
+            })
+
+            // Observe all tech stack containers
+            const containers = document.querySelectorAll('.tech-stack-container')
+            containers.forEach(container => {
+                observer.observe(container)
+            })
+        })
+    })
 
     const techStack = ref([
     {
@@ -104,7 +127,7 @@
       :key="stack.title"
       v-animateonscroll="{
         enterClass: 'animate-enter slide-in-from-b-8 animate-duration-1000',
-        leaveClass: 'animate-leave slide-out-to-b-8 animate-duration-1000'
+        once: true
       }"
       class="mb-20"
     >
@@ -118,18 +141,14 @@
       
       <!-- Tech Grid -->
       <div 
-        :class="`relative p-8 rounded-3xl bg-gradient-to-br ${stack.bgGradient} border-2 ${stack.borderColor}`"
+        :class="`tech-stack-container relative p-8 rounded-3xl bg-gradient-to-br ${stack.bgGradient} border-2 ${stack.borderColor}`"
       >
         <div class="flex flex-wrap justify-center gap-4 lg:gap-6">
           <div 
             v-for="(item, idx) in stack.tech" 
             :key="item.name"
-            v-animateonscroll="{
-              enterClass: 'animate-enter fade-in-0 animate-duration-500',
-              leaveClass: 'animate-leave fade-out-0 animate-duration-500'
-            }"
-            :style="{ animationDelay: `${idx * 50}ms` }"
-            :class="`group relative flex flex-col items-center gap-3 justify-center p-5 bg-white border-2 ${stack.borderColor} ${stack.hoverBorder} rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-2 w-28 md:w-32 cursor-pointer overflow-hidden`"
+            :style="{ animationDelay: `${idx * 100}ms` }"
+            :class="`tech-stack-item group relative flex flex-col items-center gap-3 justify-center p-5 bg-white border-2 ${stack.borderColor} ${stack.hoverBorder} rounded-xl transition-all duration-300 hover:shadow-xl hover:-translate-y-2 w-28 md:w-32 cursor-pointer overflow-hidden`"
           >
             <!-- Gradient overlay on hover -->
             <div :class="`absolute inset-0 bg-gradient-to-br ${stack.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`"></div>
@@ -165,20 +184,34 @@
 </template>
 
 <style scoped>
-/* Staggered animation for tech items */
-@keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Tech stack item - hidden by default */
+.tech-stack-item {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Ensure smooth transitions */
+/* When container is visible, animate items */
+.tech-stack-container.tech-stack-visible .tech-stack-item {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Optimize for smooth animations */
+.tech-stack-item {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Remove will-change after animation to save resources */
+.tech-stack-container.tech-stack-visible .tech-stack-item {
+  will-change: auto;
+}
+
+/* Smooth hover transitions */
 .group {
-  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 </style>
