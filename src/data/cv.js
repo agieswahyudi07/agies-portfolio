@@ -5,7 +5,7 @@
 
 export const profile = {
   name: 'Ramadhan Agies Ananda Wahyudi',
-  shortName: 'Ramadhan Agies',
+  shortName: 'Agies Wahyudi',
   role: 'Backend-focused software engineer',
   location: 'South Tangerang, Indonesia',
   summary:
