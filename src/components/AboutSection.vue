@@ -28,15 +28,15 @@ import SectionBlock from './SectionBlock.vue'
       <!-- Narrative Bio & Languages -->
       <div class="space-y-6 text-base leading-relaxed text-ink-2">
         <p class="text-lg text-ink font-medium leading-snug">
-          I build high-throughput backend systems, resilient asynchronous queues, and third-party API integrations that scale.
+          I build production backend workflows, asynchronous queues, and third-party API integrations.
         </p>
 
         <p>
-          I studied software engineering in vocational school and have developed production backend systems since 2023: starting with custom ERP modules, then building an automated multi-school asset management system, and now engineering multi-tenant SaaS infrastructure.
+          I studied software engineering in vocational school and have developed production web applications since 2023: starting with custom ERP modules, then building a web-based asset management system across three schools, and now working on multi-tenant SaaS systems.
         </p>
 
         <p>
-          At Zova Teknologi Indonesia, I architect backend workflows for a platform serving 250+ marketing agencies. My day-to-day work centers around Laravel queues, MySQL schema optimization, Redis caching, third-party API integrations, and Vue.js frontends.
+          At Zova Teknologi Indonesia, I develop backend workflows for a multi-tenant lead generation platform with approximately 3 million lead records in its production database. My day-to-day work centers around Laravel queues, MySQL query optimization, Redis caching, third-party API integrations, and Vue.js frontends.
         </p>
 
         <div class="pt-4 border-t border-line">

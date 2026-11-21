@@ -40,7 +40,7 @@ import UiIcon from './UiIcon.vue'
     <div class="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-px bg-line border border-line rounded-lg overflow-hidden font-mono text-xs">
       <div class="bg-surface p-4">
         <span class="text-ink-3 block mb-1">01 // PRODUCTION SCALE</span>
-        <span class="text-ink font-semibold text-sm">~3M Leads DB · 250+ Agencies</span>
+        <span class="text-ink font-semibold text-sm">~3M Lead Records · Multi-Tenant SaaS</span>
       </div>
       <div class="bg-surface p-4">
         <span class="text-ink-3 block mb-1">02 // CORE STACK</span>
